@@ -23,7 +23,7 @@ def gravar():
   email = request.form['email']
   senha = request.form['senha']
   if nome and email and senha:
-    conn = mysql.connect()
+    conn = db.connect()
     cursor = conn.cursor()
     cursor.execute('insert into tbl_user (user_name, user_username, user_password) VALUES (%s, %s, %s)', (nome, email, senha))
     conn.commit()
@@ -32,7 +32,7 @@ def gravar():
 
 @app.route('/listar', methods=['POST','GET'])
 def listar():
-  conn = mysql.connect()
+  conn = db.connect()
   cursor = conn.cursor()
   cursor.execute('select user_name, user_username, user_password from tbl_user')
   data = cursor.fetchall()
