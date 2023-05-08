@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request
 from flaskext.mysql import MySQL
 
+
 db = MySQL()
 app = Flask(__name__)
 
